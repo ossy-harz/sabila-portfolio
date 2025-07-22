@@ -46,3 +46,22 @@ themeToggle.addEventListener('click', () => {
   setTheme(isDark);
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
+
+// Scrollspy for sticky nav
+const navLinks = document.querySelectorAll('.sticky-nav a');
+const sections = Array.from(document.querySelectorAll('main > section'));
+
+function onScrollSpy() {
+  let scrollPos = window.scrollY + 120; // Offset for sticky nav
+  let currentSection = sections[0];
+  for (const section of sections) {
+    if (section.offsetTop <= scrollPos) {
+      currentSection = section;
+    }
+  }
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === `#${currentSection.id}`);
+  });
+}
+window.addEventListener('scroll', onScrollSpy);
+onScrollSpy();

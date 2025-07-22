@@ -24,6 +24,17 @@
     <a href="#hobbies">Hobbies</a>
   </nav>
   <header class="hero">
+    <div class="hero-bg-animated">
+      <!-- Subtle animated SVG background -->
+      <svg width="100%" height="220" viewBox="0 0 1440 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-svg-bg">
+        <path d="M0,120 C360,200 1080,40 1440,120 L1440,220 L0,220 Z" fill="#00bcd4" fill-opacity="0.08">
+          <animate attributeName="d" dur="8s" repeatCount="indefinite"
+            values="M0,120 C360,200 1080,40 1440,120 L1440,220 L0,220 Z;
+                    M0,100 C400,180 1040,60 1440,100 L1440,220 L0,220 Z;
+                    M0,120 C360,200 1080,40 1440,120 L1440,220 L0,220 Z" />
+        </path>
+      </svg>
+    </div>
     <div class="hero-content">
       <img src="profile.jpg" alt="Sabila Osman" class="avatar"/>
       <h1>Sabila Osman</h1>
@@ -59,15 +70,40 @@
     </section>
     <section id="skills" class="skills-competencies card fade-in">
       <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <div><i class="fab fa-react"></i> React/Next.js</div>
-        <div><i class="fab fa-python"></i> Python</div>
-        <div><i class="fab fa-html5"></i> HTML/CSS/PHP</div>
-        <div><i class="fab fa-docker"></i> Docker</div>
-        <div><i class="fas fa-database"></i> Firebase/Supabase, SQL</div>
-        <div><i class="fab fa-wordpress"></i> WordPress</div>
-        <div><i class="fab fa-dashcube"></i> Flutter/Dart</div>
-        <div><i class="fas fa-code-branch"></i> CI/CD Pipelines</div>
+      <div class="skills-categories">
+        <div class="skills-category">
+          <h3>Frontend</h3>
+          <div class="skills-grid">
+            <div class="skill-badge"><i class="fab fa-react"></i> React/Next.js</div>
+            <div class="skill-badge"><i class="fab fa-html5"></i> HTML</div>
+            <div class="skill-badge"><i class="fab fa-css3-alt"></i> CSS</div>
+            <div class="skill-badge"><i class="fab fa-js"></i> JavaScript</div>
+            <div class="skill-badge"><i class="fab fa-php"></i> PHP</div>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3>Backend</h3>
+          <div class="skills-grid">
+            <div class="skill-badge"><i class="fab fa-python"></i> Python</div>
+            <div class="skill-badge"><i class="fas fa-database"></i> SQL</div>
+            <div class="skill-badge"><i class="fab fa-wordpress"></i> WordPress</div>
+            <div class="skill-badge"><i class="fas fa-database"></i> Firebase/Supabase</div>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3>Mobile</h3>
+          <div class="skills-grid">
+            <div class="skill-badge"><i class="fab fa-dashcube"></i> Flutter/Dart</div>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3>Tools & DevOps</h3>
+          <div class="skills-grid">
+            <div class="skill-badge"><i class="fab fa-docker"></i> Docker</div>
+            <div class="skill-badge"><i class="fas fa-code-branch"></i> CI/CD Pipelines</div>
+            <div class="skill-badge"><i class="fas fa-tools"></i> Project Management Tools</div>
+          </div>
+        </div>
       </div>
       <h3>Key Skills</h3>
       <div class="tags">
@@ -156,36 +192,109 @@
       <h2>Featured Projects & Innovations</h2>
       <div class="project-cards">
         <div class="project-card">
+          <div class="project-img-placeholder"><!-- Optionally add real image here --></div>
           <h3>🤖 Crop Disease Detection System</h3>
+          <div class="project-badges">
+            <span class="project-badge">Python</span>
+            <span class="project-badge">Machine Learning</span>
+            <span class="project-badge">Computer Vision</span>
+          </div>
           <p>Python/ML solution achieving 85% accuracy in disease identification using computer vision.</p>
+          <div class="project-links">
+            <a href="#" class="btn btn-demo" tabindex="-1">Demo</a>
+            <a href="#" class="btn btn-github" tabindex="-1">GitHub</a>
+          </div>
         </div>
         <div class="project-card">
+          <div class="project-img-placeholder"></div>
           <h3>🌍 AquaWood Environmental Monitor</h3>
+          <div class="project-badges">
+            <span class="project-badge">Satellite Imagery</span>
+            <span class="project-badge">ML</span>
+          </div>
           <p>Satellite imagery and ML algorithms for deforestation and water pollution tracking.</p>
+          <div class="project-links">
+            <a href="#" class="btn btn-demo" tabindex="-1">Demo</a>
+            <a href="#" class="btn btn-github" tabindex="-1">GitHub</a>
+          </div>
         </div>
         <div class="project-card">
+          <div class="project-img-placeholder"></div>
           <h3>📱 Now Delivery Platform</h3>
+          <div class="project-badges">
+            <span class="project-badge">Flutter</span>
+            <span class="project-badge">Firebase</span>
+          </div>
           <p>Multi-platform delivery app with vendor, rider, customer, and admin dashboards.</p>
+          <div class="project-links">
+            <a href="#" class="btn btn-demo" tabindex="-1">Demo</a>
+            <a href="#" class="btn btn-github" tabindex="-1">GitHub</a>
+          </div>
         </div>
         <div class="project-card">
+          <div class="project-img-placeholder"></div>
           <h3>🔥 Prime Gas</h3>
+          <div class="project-badges">
+            <span class="project-badge">Flutter</span>
+            <span class="project-badge">Firebase</span>
+          </div>
           <p>Complete gas delivery ecosystem connecting customers, riders, and vendors.</p>
+          <div class="project-links">
+            <a href="#" class="btn btn-demo" tabindex="-1">Demo</a>
+            <a href="#" class="btn btn-github" tabindex="-1">GitHub</a>
+          </div>
         </div>
         <div class="project-card">
+          <div class="project-img-placeholder"></div>
           <h3>🍲 Smart Recipe App</h3>
+          <div class="project-badges">
+            <span class="project-badge">Flutter</span>
+            <span class="project-badge">Firebase</span>
+          </div>
           <p>Flutter/Firebase application with personalized recommendations.</p>
+          <div class="project-links">
+            <a href="#" class="btn btn-demo" tabindex="-1">Demo</a>
+            <a href="#" class="btn btn-github" tabindex="-1">GitHub</a>
+          </div>
         </div>
         <div class="project-card">
+          <div class="project-img-placeholder"></div>
           <h3>💧 Smart Water Meter & Billing System</h3>
+          <div class="project-badges">
+            <span class="project-badge">Arduino</span>
+            <span class="project-badge">IoT</span>
+          </div>
           <p>Arduino-based automated usage tracking with real-time billing.</p>
+          <div class="project-links">
+            <a href="#" class="btn btn-demo" tabindex="-1">Demo</a>
+            <a href="#" class="btn btn-github" tabindex="-1">GitHub</a>
+          </div>
         </div>
         <div class="project-card">
+          <div class="project-img-placeholder"></div>
           <h3>🔐 RFID Access Control System</h3>
+          <div class="project-badges">
+            <span class="project-badge">RFID</span>
+            <span class="project-badge">IoT</span>
+          </div>
           <p>Secure asset tracking and access management solution.</p>
+          <div class="project-links">
+            <a href="#" class="btn btn-demo" tabindex="-1">Demo</a>
+            <a href="#" class="btn btn-github" tabindex="-1">GitHub</a>
+          </div>
         </div>
         <div class="project-card">
+          <div class="project-img-placeholder"></div>
           <h3>🗑️ Smart Waste Monitoring</h3>
+          <div class="project-badges">
+            <span class="project-badge">IoT</span>
+            <span class="project-badge">Sensors</span>
+          </div>
           <p>Sensor-based bin monitoring with mobile alert system.</p>
+          <div class="project-links">
+            <a href="#" class="btn btn-demo" tabindex="-1">Demo</a>
+            <a href="#" class="btn btn-github" tabindex="-1">GitHub</a>
+          </div>
         </div>
       </div>
     </section>

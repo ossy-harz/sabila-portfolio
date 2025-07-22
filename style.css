@@ -1,7 +1,7 @@
 /* Pure White Minimalist Theme */
 :root {
   --accent: #00bcd4;
-  --bg: #fff;
+  --bg: #f7f8fa;
   --section-bg: #fff;
   --text: #222;
   --text-secondary: #666;
@@ -26,7 +26,7 @@ body.dark {
 body {
   font-family: 'Montserrat', 'Segoe UI', sans-serif;
   background: var(--bg);
-  color: var(--text);
+  color: #222;
   line-height: 1.7;
   transition: background 0.3s, color 0.3s;
 }
@@ -147,6 +147,23 @@ nav.sticky-nav a:hover, nav.sticky-nav a.active {
   color: #ffd600;
 }
 
+/* Hero Animated SVG Background */
+.hero-bg-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-svg-bg {
+  display: block;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
 /* Main Layout */
 main {
   width: 95%;
@@ -252,6 +269,47 @@ h3 {
   letter-spacing: 0.5px;
 }
 
+/* Skills Section Animations */
+.skills-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.skills-category {
+  min-width: 180px;
+  flex: 1 1 200px;
+}
+.skills-category h3 {
+  font-size: 1.08rem;
+  margin-bottom: 0.7rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  border-radius: 18px;
+  padding: 0.5rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.2rem 0.3rem 0.2rem 0;
+  box-shadow: 0 1px 4px rgba(0,188,212,0.04);
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s, color 0.18s;
+  border: 1.5px solid transparent;
+}
+.skill-badge:hover {
+  transform: scale(1.08) translateY(-2px);
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,188,212,0.13);
+  border-color: var(--accent);
+}
+
 /* Timeline */
 .timeline {
   border-left: 2px solid var(--divider);
@@ -304,11 +362,69 @@ h3 {
   padding: 1.2rem 1rem;
   border: 1px solid var(--card-border);
   box-shadow: none;
-  transition: transform 0.18s, box-shadow 0.18s;
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+  position: relative;
+  overflow: hidden;
 }
 .project-card:hover {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-6px) scale(1.03);
   border-color: var(--accent);
+  box-shadow: 0 8px 32px rgba(0,188,212,0.10);
+}
+.project-img-placeholder {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(90deg, #e0f4fa 25%, #b2e4f7 50%, #e0f4fa 75%);
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  animation: shimmer 2s infinite linear;
+}
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.project-badge {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  border-radius: 12px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: background 0.18s, color 0.18s;
+}
+.project-card:hover .project-badge {
+  background: var(--accent);
+  color: #fff;
+}
+.project-links {
+  margin-top: 0.7rem;
+  display: flex;
+  gap: 0.7rem;
+}
+.btn.btn-demo, .btn.btn-github {
+  font-size: 0.98rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 18px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  border: 1.5px solid var(--accent);
+  font-weight: 600;
+  box-shadow: none;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+}
+.btn.btn-demo:hover, .btn.btn-github:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.07);
 }
 
 /* Achievements & Awards */
@@ -378,13 +494,13 @@ footer {
 /* Fade-in Animation */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.8s ease forwards;
+  transform: translateY(30px) scale(0.98);
+  animation: fadeIn 0.8s cubic-bezier(.77,0,.18,1) forwards;
 }
 @keyframes fadeIn {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -406,4 +522,81 @@ footer {
     gap: 1rem;
     font-size: 0.95rem;
   }
+}
+
+.card, .hero, .project-card, .achievements li, .education li, .references li {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #222;
+}
+
+/* Secondary text only on white cards */
+.card .text-secondary, .project-card .text-secondary {
+  color: #666;
+}
+
+/* Buttons: high-contrast */
+.btn, .btn.btn-demo, .btn.btn-github {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  box-shadow: none;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+}
+.btn:hover, .btn:focus, .btn.btn-demo:hover, .btn.btn-github:hover {
+  background: #0097a7;
+  color: #fff;
+  outline: 2px solid #00bcd4;
+  outline-offset: 2px;
+}
+
+/* Badges: more visible */
+.skill-badge, .project-badge, .languages span {
+  background: #e0f4fa;
+  color: #007c91;
+  border-radius: 18px;
+  font-weight: 500;
+}
+.skill-badge:hover, .project-card:hover .project-badge {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Project image placeholder: stronger gradient */
+.project-img-placeholder {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(90deg, #e0f4fa 25%, #b2e4f7 50%, #e0f4fa 75%);
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Focus outlines for accessibility */
+a:focus, button:focus, .btn:focus {
+  outline: 2px solid #00bcd4;
+  outline-offset: 2px;
+}
+
+/* Ensure all hover/focus states are high-contrast */
+nav.sticky-nav a:hover, nav.sticky-nav a.active, nav.sticky-nav a:focus {
+  background: var(--accent);
+  color: #fff;
+  outline: 2px solid #00bcd4;
+  outline-offset: 2px;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, li, .card, .hero, .project-card, .achievements li, .education li, .references li {
+  color: #222 !important;
+}
+
+body.dark, body.dark h1, body.dark h2, body.dark h3, body.dark h4, body.dark h5, body.dark h6, body.dark p, body.dark li, body.dark .card, body.dark .hero, body.dark .project-card, body.dark .achievements li, body.dark .education li, body.dark .references li {
+  color: #f3f3f3 !important;
 }
